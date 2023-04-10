@@ -11,18 +11,29 @@ const UseReducerPro = () => {
         feedback:""
     }
     const reducer = (state,action)=>{
-        if(action.type === 'INPUT'){
+        // console.log(action);
+        /* if(action.type === 'INPUT'){
             return{
                 ...state,
                 [action.payload.name] : action.payload.value,
             }
+        } */
+        switch (action.type) {
+            case "INPUT":
+            return{
+                ...state,
+                [action.payload.name] : action.payload.value,
+            }
+        
+            default:
+                return(state)
         }
     }
     const [state,dispatch] = useReducer(reducer,initialState)
 
     const submit =(e)=>{
         e.preventDefault()
-        console.log('submit');
+        console.log(state);
     }
     return (
         <div>
@@ -38,13 +49,13 @@ const UseReducerPro = () => {
                     <label className="label">
                         <span className="label-text">Last Name</span>
                     </label>
-                    <input name='lastName' type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs text-black" />
+                    <input name='lastName' type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs text-black" onBlur={(e)=>dispatch({type:"INPUT",payload:{name:e.target.name,value:e.target.value}})}/>
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
-                    <input name='email' type="email" placeholder="Type here" className="input input-bordered w-full max-w-xs text-black" />
+                    <input name='email' type="email" placeholder="Type here" className="input input-bordered w-full max-w-xs text-black" onBlur={(e)=>dispatch({type:"INPUT",payload:{name:e.target.name,value:e.target.value}})}/>
                 </div>
                 <div className="form-control">
                     <h1 className='text-black mt-3'>Gender</h1>
@@ -61,19 +72,19 @@ const UseReducerPro = () => {
                     <label className="label">
                         <span className="label-text">Education</span>
                     </label>
-                    <input name='education' type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs text-black" />
+                    <input name='education' type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs text-black" onBlur={(e)=>dispatch({type:"INPUT",payload:{name:e.target.name,value:e.target.value}})}/>
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Number</span>
                     </label>
-                    <input name='number' type="number" placeholder="Type here" className="input input-bordered w-full max-w-xs text-black" />
+                    <input name='number' type="number" placeholder="Type here" className="input input-bordered w-full max-w-xs text-black" onBlur={(e)=>dispatch({type:"INPUT",payload:{name:e.target.name,value:e.target.value}})}/>
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Feedback</span>
                     </label>
-                    <textarea name='feedback' className="textarea textarea-bordered h-24 w-full max-w-xs" placeholder="..."></textarea>
+                    <textarea name='feedback' className="textarea textarea-bordered h-24 w-full max-w-xs text-black" placeholder="..." onBlur={(e)=>dispatch({type:"INPUT",payload:{name:e.target.name,value:e.target.value}})}></textarea>
                 </div>
                 <div className="form-control">
                     <input type="submit" placeholder="Type here" className="input input-bordered w-full max-w-xs text-black" />
