@@ -8,7 +8,7 @@ const ReducerContextProject = () => {
         .then(data => console.log(data))
     },[]) */
     const data = useProducts()
-    console.log(data);
+    console.log(data.state.data);
     return (
         <div>
             <div className="navbar bg-green-100 text-black rounded-full">
@@ -18,21 +18,26 @@ const ReducerContextProject = () => {
                 <div className="flex-none">
                     <ul className="menu menu-horizontal px-1">
                         <li><a>Home</a></li>
-                        <li tabindex="0">
-                            <a>
-                                Top rated
-                                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
-                            </a>
-                            <ul className="p-2 bg-base-100">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
-                        </li>
+                        <li><a>Top rated</a></li>
                         <li><a>About</a></li>
                         <li><a>Cart</a></li>
                     </ul>
                 </div>
             </div>
+            <section className='grid grid-cols-4 gap-y-20 mt-20 justify-items-center'>
+                {data?.state?.data?.map(product=>
+                    <div className="card w-96 bg-base-100 shadow-xl">
+                    <figure><img className='h-36' src={product?.images[0]} alt="Shoes" /></figure>
+                    <div className="card-body">
+                      <h2 className="card-title text-black">{product?.title}</h2>
+                      <p className='text-black'>{product?.description}</p>
+                      <div className="card-actions justify-end">
+                        <button className="btn btn-primary">Buy Now</button>
+                      </div>
+                    </div>
+                  </div>
+                    )}
+            </section>
         </div>
     );
 };

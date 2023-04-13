@@ -15,7 +15,7 @@ function App() {
   data
 } */
   return (
-    <div className="h-screen bg-neutral-950 text-white">
+    <div className="bg-neutral-950 text-white">
       <ProductProvider>
       <RouterProvider router={routes} />
       </ProductProvider>
