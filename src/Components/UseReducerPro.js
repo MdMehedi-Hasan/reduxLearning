@@ -1,7 +1,8 @@
 import React, { useReducer } from 'react';
+import { initialState, reducer } from './States';
 
 const UseReducerPro = () => {
-    const initialState = {
+    /* const initialState = {
         firstName:"",
         lastName:"",
         email:"",
@@ -11,15 +12,13 @@ const UseReducerPro = () => {
         feedback:""
     }
     const reducer = (state,action)=>{
-        // console.log(action);
-        /* if(action.type === 'INPUT'){
+        switch (action.type) {
+            case "INPUT":
             return{
                 ...state,
                 [action.payload.name] : action.payload.value,
             }
-        } */
-        switch (action.type) {
-            case "INPUT":
+            case "RADIO":
             return{
                 ...state,
                 [action.payload.name] : action.payload.value,
@@ -28,7 +27,7 @@ const UseReducerPro = () => {
             default:
                 return(state)
         }
-    }
+    } */
     const [state,dispatch] = useReducer(reducer,initialState)
 
     const submit =(e)=>{
@@ -37,7 +36,7 @@ const UseReducerPro = () => {
     }
     return (
         <div>
-            <h1 className='text-center pt-20'>Testing useReducer according to <br /> <span className='font-serif text-4xl font-bold'>Mir vai</span></h1>
+            <h1 className='text-center pt-20'>Testing <span className='text-2xl font-bold'>useReducer</span> according to <br /> <span className='font-serif text-4xl font-bold'>Mir vai</span></h1>
             <form className='bg-gray-50 w-full max-w-4xl mx-auto mt-10 p-10 rounded-lg grid grid-cols-2 items-end' onSubmit={(e)=>submit(e)}>
                 <div className="form-control">
                     <label className="label">
@@ -61,11 +60,11 @@ const UseReducerPro = () => {
                     <h1 className='text-black mt-3'>Gender</h1>
                     <label className="label cursor-pointer">
                         <span className="label-text">Male</span>
-                        <input type="radio" name="radio-10" className="radio checked:bg-red-500"/>
+                        <input onClick={(e)=>dispatch({type:"RADIO",payload:{name:'gender', value:'male'}})} type="radio" name="radio-10" className="radio checked:bg-red-500"/>
                         <span className="label-text">Female</span>
-                        <input type="radio" name="radio-10" className="radio checked:bg-red-500"/>
+                        <input onClick={(e)=>dispatch({type:"RADIO",payload:{name:'gender', value:'female'}})} type="radio" name="radio-10" className="radio checked:bg-red-500"/>
                         <span className="label-text">Others</span>
-                        <input type="radio" name="radio-10" className="radio checked:bg-red-500"/>
+                        <input onClick={(e)=>dispatch({type:"RADIO",payload:{name:'gender', value:'others'}})} type="radio" name="radio-10" className="radio checked:bg-red-500"/>
                     </label>
                 </div>
                 <div className="form-control">
