@@ -1,9 +1,9 @@
 import React from 'react';
 import { useProducts } from './Context/ProductProvider';
 
-const Cart = () => {
-    const {state:{cart,error,loading}} = useProducts()
-    console.log(cart);
+const Wishlist = () => {
+    const {state:{wishlist,error,loading}} = useProducts()
+    console.log(wishlist);
     let content;
     if(loading){
         content = <p>Loading</p>
@@ -12,7 +12,7 @@ const Cart = () => {
         content = <p>Something went wrong!</p>
     }
     else{
-       content = cart?.map(product=>
+       content = wishlist?.map(product=>
             <div key={product?.product?.id} className="card w-auto bg-base-100 shadow-xl text-black">
             <figure><img className='h-36' src={product?.product?.images[0]} alt="Shoes" /></figure>
             <div className="card-body">
@@ -33,4 +33,4 @@ const Cart = () => {
     );
 };
 
-export default Cart;
+export default Wishlist;

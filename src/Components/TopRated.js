@@ -19,7 +19,8 @@ const TopRated = () => {
               <h2 className="card-title">{product?.title}</h2>
               <p>{product?.description}</p>
               <p>Rating: {product?.rating}</p>
-              <div className="card-actions justify-end">
+              <div className="card-actions justify-between">
+                <button className="btn btn-primary" onClick={()=>dispatch({type:types.ADD_TO_WISHLIST,payload:{product}})}>Wishlist</button>
                 <button className="btn btn-primary" onClick={()=>dispatch({type:types.ADD_TO_CART,payload:{product}})}>Buy Now</button>
               </div>
             </div>

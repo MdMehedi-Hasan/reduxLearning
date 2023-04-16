@@ -20,7 +20,8 @@ const ReducerContextProject = () => {
                         <li><Link to="/products">Home</Link></li>
                         <li><Link to="toprated">Top rated</Link></li>
                         <li><a>About</a></li>
-                        <li><Link to="cart">Cart</Link></li>
+                        <li><Link to="wishlist"><img className='w-8' src="https://png.pngtree.com/template/20191025/ourmid/pngtree-love-interface-line-vector-single-icon-image_319675.jpg" alt="icon"/></Link></li>
+                        <li><Link to="cart"><img className='w-8' src="https://www.vhv.rs/dpng/d/428-4287684_background-shopping-cart-transparent-transparent-background-shopping-cart.png" alt="icon"/></Link></li>
                     </ul>
                 </div>
             </div>

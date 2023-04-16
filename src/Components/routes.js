@@ -7,6 +7,7 @@ import ReducerContextProject from './ReducerContextProject';
 import TopRated from './TopRated';
 import AllProducts from './AllProducts';
 import Cart from './Cart';
+import Wishlist from './Wishlist';
 
 const routes = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const routes = createBrowserRouter([
           {
             path: "toprated",
             element: <TopRated/>,
+          },
+          {
+            path: "wishlist",
+            element: <Wishlist/>,
           },
           {
             path: "cart",
