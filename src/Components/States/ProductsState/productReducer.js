@@ -5,7 +5,7 @@ export const initialState = {
     data: [],
     error: false,
     cart:[],
-    wishlist:[]
+    wishlist:[],
 }
 export const productReducer = (state, action) => {
     switch (action.type) {
@@ -37,6 +37,11 @@ export const productReducer = (state, action) => {
             return {
                 ...state,
                 wishlist:[ ...state.wishlist,action.payload ]
+            }
+        case types.DELETE_FROM_CART:
+            return {
+                ...state,
+                cart:[ ...state.cart.filter(r=> r !== action.payload)  ]
             }
 
         default:

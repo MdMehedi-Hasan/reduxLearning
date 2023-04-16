@@ -3,7 +3,6 @@ import { useProducts } from './Context/ProductProvider';
 
 const Wishlist = () => {
     const {state:{wishlist,error,loading}} = useProducts()
-    console.log(wishlist);
     let content;
     if(loading){
         content = <p>Loading</p>

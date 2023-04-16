@@ -1,9 +1,9 @@
 import React from 'react';
 import { useProducts } from './Context/ProductProvider';
+import { types } from './States/ProductsState/actiontype';
 
 const Cart = () => {
-    const {state:{cart,error,loading}} = useProducts()
-    console.log(cart);
+    const {state:{cart,error,loading},dispatch} = useProducts()
     let content;
     if(loading){
         content = <p>Loading</p>
@@ -19,7 +19,8 @@ const Cart = () => {
               <h2 className="card-title">{product?.product?.title}</h2>
               <p>{product?.product?.description}</p>
               <p>Rating: {product?.product?.rating}</p>
-              <div className="card-actions justify-end">
+              <div className="card-actions justify-between">
+                <button className="btn btn-error" onClick={()=>dispatch({type:types.DELETE_FROM_CART,payload:product})}>Delete</button>
                 <button className="btn btn-primary">Buy Now</button>
               </div>
             </div>
