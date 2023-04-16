@@ -4,6 +4,9 @@ import Shapes from './Shapes';
 import Redux from './Redux';
 import UseReducerPro from './UseReducerPro';
 import ReducerContextProject from './ReducerContextProject';
+import TopRated from './TopRated';
+import AllProducts from './AllProducts';
+import Cart from './Cart';
 
 const routes = createBrowserRouter([
     {
@@ -19,8 +22,22 @@ const routes = createBrowserRouter([
       element: <UseReducerPro/>,
     },
     {
-        path: "/4",
-        element: <ReducerContextProject/>
+        path: "/products",
+        element: <ReducerContextProject/>,
+        children:[
+          {
+            path: "",
+            element: <AllProducts/>,
+          },
+          {
+            path: "toprated",
+            element: <TopRated/>,
+          },
+          {
+            path: "cart",
+            element: <Cart/>,
+          }
+        ]
     }
   ]);
 

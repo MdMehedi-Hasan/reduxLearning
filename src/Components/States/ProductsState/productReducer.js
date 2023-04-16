@@ -1,9 +1,10 @@
 import { types } from "./actiontype";
 
 export const initialState = {
-    loading: false,
+    loading: true,
     data: [],
-    error: false
+    error: false,
+    cart:[]
 }
 export const productReducer = (state, action) => {
     switch (action.type) {
@@ -25,6 +26,11 @@ export const productReducer = (state, action) => {
                 ...state,
                 loading: false,
                 error: true
+            }
+        case types.ADD_TO_CART:
+            return {
+                ...state,
+                cart:[ ...state.cart,action.payload ]
             }
 
         default:

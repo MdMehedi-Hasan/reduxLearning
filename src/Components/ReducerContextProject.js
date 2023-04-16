@@ -1,5 +1,6 @@
 import React from 'react';
 import { useProducts } from './Context/ProductProvider';
+import { Link, Outlet } from 'react-router-dom';
 
 const ReducerContextProject = () => {
     /* useEffect(()=>{
@@ -7,8 +8,7 @@ const ReducerContextProject = () => {
         .then(res => res.json())
         .then(data => console.log(data))
     },[]) */
-    const data = useProducts()
-    console.log(data.state.data);
+    // console.log(data.state.data);
     return (
         <div>
             <div className="navbar bg-green-100 text-black rounded-full">
@@ -17,26 +17,16 @@ const ReducerContextProject = () => {
                 </div>
                 <div className="flex-none">
                     <ul className="menu menu-horizontal px-1">
-                        <li><a>Home</a></li>
-                        <li><a>Top rated</a></li>
+                        <li><Link to="/products">Home</Link></li>
+                        <li><Link to="toprated">Top rated</Link></li>
                         <li><a>About</a></li>
-                        <li><a>Cart</a></li>
+                        <li><Link to="cart">Cart</Link></li>
                     </ul>
                 </div>
             </div>
-            <section className='grid grid-cols-4 gap-y-20 mt-20 justify-items-center'>
-                {data?.state?.data?.map(product=>
-                    <div className="card w-96 bg-base-100 shadow-xl">
-                    <figure><img className='h-36' src={product?.images[0]} alt="Shoes" /></figure>
-                    <div className="card-body">
-                      <h2 className="card-title text-black">{product?.title}</h2>
-                      <p className='text-black'>{product?.description}</p>
-                      <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
-                      </div>
-                    </div>
-                  </div>
-                    )}
+            <section>
+                {/* {content} */}
+                <Outlet/>
             </section>
         </div>
     );
