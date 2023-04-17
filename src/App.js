@@ -1,7 +1,7 @@
 import { RouterProvider } from "react-router-dom";
-import routes from "./Components/routes";
 import { createContext, useEffect, useState } from "react";
-import ProductProvider from "./Components/Context/ProductProvider";
+import ProductProvider from "./Practise1/Components/Context/ProductProvider";
+import routes from "./Practise1/Components/routes";
 // const Context_Provider = createContext()
 
 function App() {

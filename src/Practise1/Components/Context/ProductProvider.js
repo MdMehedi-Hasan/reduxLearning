@@ -9,7 +9,7 @@ const CONTEXT_PROVIDER = createContext()
 
 const ProductProvider = ({children}) => {
     const [state,dispatch] = useReducer(productReducer,initialState)
-    console.log(state);
+    // console.log(state);
     useEffect(()=>{
         dispatch({type:types.FETCHING_START})
       fetch('https://dummyjson.com/products')
