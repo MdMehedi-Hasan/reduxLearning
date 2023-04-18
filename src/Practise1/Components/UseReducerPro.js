@@ -32,7 +32,6 @@ const UseReducerPro = () => {
 
     const submit =(e)=>{
         e.preventDefault()
-        console.log(state);
     }
     return (
         <div>

@@ -26,7 +26,6 @@ const ReducerContextProject = () => {
                 </div>
             </div>
             <section>
-                {/* {content} */}
                 <Outlet/>
             </section>
         </div>

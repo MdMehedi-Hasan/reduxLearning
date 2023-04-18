@@ -3,7 +3,8 @@ import { useProducts } from './Context/ProductProvider';
 
 const AllProducts = () => {
     const {state:{data,error,loading}} = useProducts()
-    console.log(data)
+    const test = useProducts()
+    // console.log("atchi",test)
     let content;
     if(loading){
         content = <p>Loading</p>

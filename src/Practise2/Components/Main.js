@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import GLOBAL_CONTEXT from './State/Context'
+import Context from './State/Context';
 
 const Main = () => {
     return (
@@ -21,7 +23,9 @@ const Main = () => {
                 </div>
             </div>
             <div>
-                {<Outlet/>}
+                <Context>
+                    {<Outlet />}
+                </Context>
             </div>
         </div>
     );
